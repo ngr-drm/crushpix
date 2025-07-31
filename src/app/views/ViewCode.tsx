@@ -1,6 +1,6 @@
 import { Layout } from './Home';
 
-const ViewCode = (props: { code: string; wpp: string }) => {
+const ViewCode = (props: { code: string, wpp: string, crushpixURL: string }) => {
   return (
     <Layout>
       <div className="container">
@@ -26,10 +26,10 @@ const ViewCode = (props: { code: string; wpp: string }) => {
 
         <form>
           <a
-            href={`https://wa.me/${props.wpp}?text=${encodeURIComponent("test")}`}
+            href={`https://wa.me/${props.wpp}?text=${encodeURIComponent(props.crushpixURL)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="button whatsapp"
+            className="button whatsapp" s
           >
             Enviar para WhatsApp
           </a>

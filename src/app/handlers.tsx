@@ -1,9 +1,10 @@
 import { randomUUID } from "node:crypto"
-import { client } from "../db/mongo"
+import { getDb } from "../db/mongo"
 import { Home } from "./views/Home"
 import ViewCode from "./views/ViewCode"
 import CrushPix from "./views/CrushPix"
 
+const db = await getDb()
 export const homeHandler = (c: any) => {
   return c.html(<Home />);
 };
@@ -23,13 +24,13 @@ export const createCrushPixHandler = async (c: any) => {
     value: value,
   }
 
-  await client.db().collection('crushpix').insertOne(doc);
+  await db.collection('lovers').insertOne(doc);
   return c.redirect(`/crushpix/${doc.endtoend}`);
 };
 
 export const viewCrushPixHandler = async (c: any) => {
   const endtoend = c.req.param('code')
-  const doc = await client.db().collection('crushpix').findOne({ endtoend: endtoend });
+  const doc = await db.collection('lovers').findOne({ endtoend: endtoend });
 
   return c.html(
     <CrushPix code={endtoend} target={doc?.target} message={doc?.message} wpp={doc?.wpp} value={doc?.value} />
@@ -38,10 +39,11 @@ export const viewCrushPixHandler = async (c: any) => {
 
 export const fetchCrushPixCodeHandler = async (c: any) => {
   const endtoend = c.req.param('code');
-  const doc = await client.db().collection('crushpix').findOne({ endtoend: endtoend });
+  const doc = await db.collection('lovers').findOne({ endtoend: endtoend });
   const wpp = `+55${doc?.wpp.replace(" ", "")}`
-  console.log(wpp)
+
+  const crushpixURL = `https://crushpix.onrender.com/crushpix/view/${endtoend}`
   return c.html(
-    <ViewCode code={endtoend} wpp={wpp} />
+    <ViewCode code={endtoend} wpp={wpp} crushpixURL={crushpixURL} />
   );
 };
