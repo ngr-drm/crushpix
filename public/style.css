@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 50%, #845ec2 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  background: #ffffff;
+  padding: 2rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 900;
+  font-size: 2.1rem;
+  color: #c2185b;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+}
+
+p.subtitle {
+  color: #ad1457;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.emoji {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.pix-icon {
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 1.15rem 1.25rem;
+  font-size: 1.05rem;
+  border-radius: 1rem;
+  border: 1px solid #e0e0e0;
+  background-color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #ec407a;
+  box-shadow: 0 0 0 3px rgba(236, 64, 122, 0.2);
+  outline: none;
+  background-color: #fff;
+}
+
+input::placeholder {
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.love-box {
+  background: linear-gradient(135deg, #ffe4ec, #f8bbd0);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.25rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.romantic-text {
+  color: #993399;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.final-line {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #6b0f1a;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.fade-line {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+/* ---------------- Botões ---------------- */
+
+.button {
+  width: 100%;
+  padding: 1.05rem 1.25rem;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1.25rem;
+  transition: transform 0.1s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  transform: scale(1.03);
+}
+
+.button.primary {
+  background: linear-gradient(to right, #ec407a, #d81b60);
+}
+
+.button.secondary {
+  background: #6b7280;
+}
+
+.button.whatsapp {
+  background: linear-gradient(to right, #25D366, #1ebe5d);
+}
+
+/* ---------------- Responsivo ---------------- */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p.subtitle {
+    font-size: 0.95rem;
+  }
+
+  input[type="text"],
+  .button {
+    font-size: 0.95rem;
+    padding: 1rem 1.15rem;
+  }
+}
