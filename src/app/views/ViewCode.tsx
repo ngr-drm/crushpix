@@ -26,6 +26,12 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
           </div>
         )}
 
+        <form method="get" action={`/crushpix/view/${props.code}`}>
+          <button type="submit" className="button primary">
+            visualizar
+          </button>
+        </form>
+
         <form>
           <a
             href={`https://wa.me/${props.wpp}?text=${encodeURIComponent(props.crushpixURL)}`}
@@ -33,18 +39,9 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
             rel="noopener noreferrer"
             className="button whatsapp" s
           >
-            Enviar para WhatsApp
+            Enviar no WhatsApp
           </a>
         </form>
-
-        <form method="get" action={`/crushpix/view/${props.code}`}>
-          <button type="submit" className="button primary">
-            visualizar
-          </button>
-        </form>
-
-
-
 
         <form method="get" action="/">
           <button type="submit" className="button secondary">
