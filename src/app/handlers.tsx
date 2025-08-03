@@ -41,7 +41,9 @@ export const fetchCrushPixCodeHandler = async (c: any) => {
   const endtoend = c.req.param('code');
   const created = c.req.query('created') === '1';
   const doc = await db.collection('lovers').findOne({ endtoend: endtoend });
-  const wpp = `+55${doc?.wpp.replace(" ", "")}`
+  const rawWpp = doc?.wpp.replace(/\D/g, '');
+
+  const wpp = `+55${rawWpp}`;
 
   const crushpixURL = `https://crushpix.onrender.com/crushpix/view/${endtoend}`
   return c.html(

@@ -2,7 +2,7 @@ export const Layout = (props: any) => {
   return (
     <html>
       <head>
-        <meta property="og:title" content="Crush PIX!" />
+        <meta property="og:title" content="Crush PIX" />
         <meta property="og:description" content="Você ganhou um Pix do Amor. Veja agora! 🍓" />
         <meta property="og:image" content="https://crushpix.onrender.com/public/pix-logo.png" />
         <meta property="og:url" content={`https://crushpix.onrender.com/crushpix/view/${props.code}`} />
@@ -16,21 +16,39 @@ export const Layout = (props: any) => {
 
       </head>
       <body>{props.children}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            document.addEventListener('DOMContentLoaded', function () {
-              const input = document.getElementById('value');
-              if (input) {
-                input.addEventListener('input', function (e) {
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Máscara de valor (já existente, mantendo aqui)
+              const valueInput = document.getElementById('value');
+              if (valueInput) {
+                valueInput.addEventListener('input', function (e) {
                   let v = e.target.value.replace(/\\D/g, '');
-                  if (!v) return e.target.value = '';
-                  v = (Number(v) / 100).toFixed(2).replace('.', ',');
-                  e.target.value = 'R$ ' + v.replace(/\\B(?=(\\d{3})+(?!\\d))/g, '.');
+                  v = (Number(v) / 100).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  });
+                  e.target.value = v;
                 });
               }
-            });
-          `
-        }} />
+
+              // Máscara de telefone (novo!)
+              const wppInput = document.getElementById('wpp');
+              if (wppInput) {
+                wppInput.addEventListener('input', function (e) {
+                  let v = e.target.value.replace(/\\D/g, '');
+                  if (v.length > 11) v = v.slice(0, 11);
+
+                  if (v.length >= 2) v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
+                  if (v.length >= 9) v = v.slice(0, 10) + '-' + v.slice(10);
+
+                  e.target.value = v;
+                });
+              }
+            `,
+          }}
+        />
+
       </body>
     </html>
   );
