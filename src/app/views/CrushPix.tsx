@@ -34,12 +34,13 @@ const CrushPix = (props: {
               __html: `
                 const lines = [
                   "Salve ${props.target}!",
-                  "Alguém pensou em você e decidiu fazer diferente...",
+                  "Pensei em você e decidir fazer diferente...",
                   "você recebeu um Pix do Amor! 🍓",
                   "valor desse sentimento:",
                   "${props.value}",
                   "${props.message}",
-                  "Agora aguarde... esse carinho vai chegar na sua conta!"
+                  "agora me diga sua chave Pix...",
+                  "e aguarde meu carinho na sua conta!"
                 ];
 
                 const container = document.getElementById("lines");

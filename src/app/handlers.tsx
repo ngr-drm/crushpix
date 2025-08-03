@@ -25,7 +25,7 @@ export const createCrushPixHandler = async (c: any) => {
   }
 
   await db.collection('lovers').insertOne(doc);
-  return c.redirect(`/crushpix/${doc.endtoend}`);
+  return c.redirect(`/crushpix/${doc.endtoend}?created=1`);
 };
 
 export const viewCrushPixHandler = async (c: any) => {
@@ -39,11 +39,12 @@ export const viewCrushPixHandler = async (c: any) => {
 
 export const fetchCrushPixCodeHandler = async (c: any) => {
   const endtoend = c.req.param('code');
+  const created = c.req.query('created') === '1';
   const doc = await db.collection('lovers').findOne({ endtoend: endtoend });
   const wpp = `+55${doc?.wpp.replace(" ", "")}`
 
   const crushpixURL = `https://crushpix.onrender.com/crushpix/view/${endtoend}`
   return c.html(
-    <ViewCode code={endtoend} wpp={wpp} crushpixURL={crushpixURL} />
+    <ViewCode code={endtoend} wpp={wpp} crushpixURL={crushpixURL} created={created} />
   );
 };

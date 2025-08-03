@@ -1,8 +1,8 @@
 import { Layout } from './Home';
 
-const ViewCode = (props: { code: string, wpp: string, crushpixURL: string }) => {
+const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, created?: boolean }) => {
   return (
-    <Layout>
+    <Layout props={props} >
       <div className="container">
         <h1>Crush PIX</h1>
         <p className="subtitle">o PIX do Amor</p>
@@ -16,6 +16,15 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string }) => 
             style={{ marginBottom: '1.5rem' }}
           />
         </div>
+
+        {props.created && (
+          <div className="confirmation-block">
+            <div className="confirmation-logo">
+              <span className="heart-emoji">🍓</span>
+            </div>
+            <p className="confirmation-text">seu PIX do Amor ficou pronto!</p>
+          </div>
+        )}
 
         <form method="get" action={`/crushpix/view/${props.code}`}>
           <button type="submit" className="button primary">

@@ -2,6 +2,11 @@ export const Layout = (props: any) => {
   return (
     <html>
       <head>
+        <meta property="og:title" content="Crush PIX!" />
+        <meta property="og:description" content="Você ganhou um Pix do Amor. Veja agora! 🍓" />
+        <meta property="og:image" content="https://crushpix.onrender.com/public/pix-logo.png" />
+        <meta property="og:url" content={`https://crushpix.onrender.com/crushpix/view/${props.code}`} />
+        <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap"
