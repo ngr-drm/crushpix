@@ -4,7 +4,7 @@ export const Layout = (props: any) => {
       <head>
         <meta property="og:title" content="Crush PIX" />
         <meta property="og:description" content="Você ganhou um Pix do Amor. Veja agora! 🍓" />
-        <meta property="og:image" content="https://crushpix.onrender.com/public/pix-logo.png" />
+        <meta property="og:image" content="https://crushpix.onrender.com/pix-logo.png" />
         <meta property="og:url" content={`https://crushpix.onrender.com/crushpix/view/${props.code}`} />
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
