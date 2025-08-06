@@ -222,7 +222,7 @@ input::placeholder {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to right, #4CAF50, #45a049);
+  background: linear-gradient(to right, #f15b92, #f2b2c8);
   color: white;
   padding: 15px 25px;
   border-radius: 8px;
@@ -232,6 +232,7 @@ input::placeholder {
   font-weight: 600;
   animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease forwards 4.5s;
   max-width: 90%;
+  white-space: nowrap;
 }
 
 @keyframes slideDown {
@@ -251,5 +252,12 @@ input::placeholder {
   }
   to {
     opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-alert {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 }
