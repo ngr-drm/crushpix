@@ -89,7 +89,7 @@ input::placeholder {
 
 .romantic-text {
   color: #993399;
-  font-weight: 500;
+  font-weight: 505;
   font-size: 1.05rem;
   line-height: 1.7;
   white-space: pre-line;
@@ -190,13 +190,6 @@ input::placeholder {
   animation: pulseEmoji 1.2s ease-in-out infinite;
 }
 
-.confirmation-text {
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: #ec407a;
-  font-size: 0.8rem;
-  animation: fadeIn 1s ease-in;
-}
 
 @keyframes pulseEmoji {
   0% {
@@ -221,5 +214,42 @@ input::placeholder {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #4CAF50, #45a049);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  text-align: center;
+  font-weight: 600;
+  animation: slideDown 0.5s ease forwards, fadeOut 0.5s ease forwards 4.5s;
+  max-width: 90%;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

@@ -1,8 +1,31 @@
 import { Layout } from './Home';
 
 const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, created?: boolean }) => {
+  
+  const customAlertScript = props.created ? `
+    <script>
+      (function() {
+        // Criar o elemento de alerta
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'custom-alert';
+        alertDiv.textContent = 'Seu PIX do Amor ficou pronto! 🍓';
+        document.body.appendChild(alertDiv);
+        
+        // Remover o alerta após a animação terminar
+        setTimeout(() => {
+          alertDiv.addEventListener('animationend', function(e) {
+            if (e.animationName === 'fadeOut') {
+              document.body.removeChild(alertDiv);
+            }
+          });
+        }, 4500);
+      })();
+    </script>
+  ` : '';
+
   return (
     <Layout props={props} >
+      {props.created && <div dangerouslySetInnerHTML={{ __html: customAlertScript }} />}
       <div className="container">
         <h1>Crush PIX</h1>
         <p className="subtitle">o PIX do Amor</p>
@@ -22,7 +45,6 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
             <div className="confirmation-logo">
               <span className="heart-emoji">🍓</span>
             </div>
-            <p className="confirmation-text">seu PIX do Amor ficou pronto!</p>
           </div>
         )}
 
