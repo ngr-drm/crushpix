@@ -4,7 +4,7 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 50%, #845ec2 100%);
+  background: linear-gradient(135deg, #080707 0%, #0c0c0b 50%, #0d0d0e 100%);
   margin: 0;
   min-height: 100vh;
   display: flex;
@@ -142,7 +142,7 @@ input::placeholder {
 }
 
 .button.whatsapp {
-  background: linear-gradient(to right, #25D366, #1ebe5d);
+  background: linear-gradient(to right, #25d365dd, #1ebe5d);
 }
 
 /* ---------------- Responsivo ---------------- */
@@ -213,7 +213,7 @@ input::placeholder {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(to right, #d33971, #f2b2c8);
+  background: linear-gradient(to right, #4a15a0, #4fdaab);
   color: white;
   padding: 15px 25px;
   border-radius: 8px;

@@ -24,7 +24,11 @@ const CrushPix = (props: {
             />
           </div>
 
-          {/* Bloco com fundo gradiente */}
+          <div className="confirmation-block">
+            <div className="confirmation-logo">
+              <span className="heart-emoji">🍓</span>
+            </div>
+          </div>
 
           <div id="lines" class="romantic-text"></div>
 
@@ -33,9 +37,8 @@ const CrushPix = (props: {
             dangerouslySetInnerHTML={{
               __html: `
                 const lines = [
-                  "Salve ${props.target}!",
-                  "Pensei em você e decidir fazer diferente...",
-                  "você recebeu um Pix do Amor! 🍓",
+                  "Olá ${props.target}!",
+                  "você recebeu um Pix do Amor!",
                   "valor desse sentimento:",
                   "${props.value}",
                   "${props.message}",

@@ -8,7 +8,7 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
         // Criar o elemento de alerta
         const alertDiv = document.createElement('div');
         alertDiv.className = 'custom-alert';
-        alertDiv.textContent = 'Seu PIX do Amor ficou pronto! 🍓';
+        alertDiv.textContent = 'Seu PIX do Amor ficou pronto!';
         document.body.appendChild(alertDiv);
         
         // Remover o alerta após a animação terminar
@@ -40,14 +40,6 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
           />
         </div>
 
-        {props.created && (
-          <div className="confirmation-block">
-            <div className="confirmation-logo">
-              <span className="heart-emoji">🍓</span>
-            </div>
-          </div>
-        )}
-
         <form method="get" action={`/crushpix/view/${props.code}`}>
           <button type="submit" className="button primary">
             visualizar
@@ -59,7 +51,7 @@ const ViewCode = (props: { code: string, wpp: string, crushpixURL: string, creat
             href={`https://wa.me/${props.wpp}?text=${encodeURIComponent(props.crushpixURL)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="button whatsapp" s
+            className="button whatsapp"
           >
             Enviar no WhatsApp
           </a>
