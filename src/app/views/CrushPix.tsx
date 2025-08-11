@@ -37,13 +37,13 @@ const CrushPix = (props: {
             dangerouslySetInnerHTML={{
               __html: `
                 const lines = [
-                  "Olá ${props.target}!",
+                  "Olá ${props.target} !",
                   "você recebeu um Pix do Amor!",
                   "valor desse sentimento:",
                   "${props.value}",
                   "${props.message}",
-                  "agora me diga sua chave Pix...",
-                  "e aguarde meu carinho na sua conta!"
+                  "me diga sua chave Pix...",
+                  "e aguarde meu carinho na conta!"
                 ];
 
                 const container = document.getElementById("lines");
