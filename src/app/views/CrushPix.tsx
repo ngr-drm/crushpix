@@ -43,7 +43,7 @@ const CrushPix = (props: {
                   "${props.value}",
                   "${props.message}",
                   "agora me diga sua chave Pix...",
-                  "e aguarde meu carinho na sua conta!"
+                  "e aguarde meu carinho na conta!"
                 ];
 
                 const container = document.getElementById("lines");
